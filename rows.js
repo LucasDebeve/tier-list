@@ -1,5 +1,5 @@
-const rows = document.querySelectorAll(".row");
-const colors = ['green','aquamarine','yellow','orange','orangered','red'];
+const dragZone = document.querySelectorAll(".dragZone");
+const colors = ['white','lightgrey','yellow','orange','orangered','red'];
 
 
 const onDragOver = (event)=>{
@@ -14,7 +14,7 @@ const onDrop = (event)=>{
     /*Update Local Storage */
 const cardData = {
     imageSrc: draggedCard.querySelector('img').src,
-    row: event.target.querySelector('.label').innerText,
+    row: event.target.parentNode.querySelector('.label').innerText,
 }
 
     window.localStorage.setItem(draggedCard.id,JSON.stringify(cardData));
@@ -22,9 +22,9 @@ const cardData = {
     event.target.appendChild(draggedCard);
 }
 
-rows.forEach((row,index)=>
+dragZone.forEach((row,index)=>
 {
-    const label = row.querySelector(".label");
+    const label = row.parentNode.querySelector(".label");
     label.style.backgroundColor = colors[index];
     row.ondragover = onDragOver;
     row.ondrop = onDrop;

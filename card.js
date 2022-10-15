@@ -96,9 +96,9 @@ window.onload = () => {
     keys.forEach((key) => {
         const cardData = JSON.parse(window.localStorage.getItem(key));
         const loadedCard = createCard(key, cardData);
-        const row = document.querySelectorAll(".row");
-        const correctRow = Array.from(rows).find((row) => {
-            return row.querySelector('.label').innerText === cardData.row;
+        const dragZone = document.querySelectorAll(".dragZone");
+        const correctRow = Array.from(dragZone).find((row) => {
+            return row.parentNode.querySelector('.label').innerText === cardData.row;
         });
         if (correctRow) {
             correctRow.appendChild(loadedCard);
