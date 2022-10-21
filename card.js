@@ -36,7 +36,7 @@ const createCard = (id, cardData) => {
 const appendImage = (card) => {
     const input = document.createElement('input');
     input.setAttribute('type', 'file');
-    input.setAttribute('accept', 'image/x-png,image/gif,image/jpeg');
+    input.setAttribute('accept', 'image/x-png,image/gif,image/jpeg,image/png');
     input.style.visibility = 'hidden';
     input.onchange = () => {
         const image = new Image();
